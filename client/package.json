@@ -1,0 +1,42 @@
+{
+    "name": "template-axum-react-spa",
+    "version": "0.1.0",
+    "repository": "",
+    "author": "Rob Wagner <rob@sombia.com>",
+    "license": "",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "serve": "vite preview",
+        "fmt": "prettier --write --plugin-search-dir=. \"**/*.{ts,html,css,cjs,json,tsx}\"",
+        "lint": "eslint \"src/**/*.{ts,tsx}\"",
+        "lint:fix": "eslint --fix --fix-type problem,suggestion \"**/*.{ts,tsx}\"",
+        "tsc": "tsc --noEmit",
+        "tsc:watch": "tsc --noEmit --watch",
+        "test": "vitest run --no-watch",
+        "test:watch": "vitest",
+        "check": "npm run tsc && npm run lint:fix && npm run test && npm run fmt"
+    },
+    "dependencies": {
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.11",
+        "@typescript-eslint/eslint-plugin": "^5.53.0",
+        "@typescript-eslint/parser": "^5.53.0",
+        "@vitejs/plugin-react": "^3.1.0",
+        "autoprefixer": "^10.4.13",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.35.0",
+        "happy-dom": "^8.9.0",
+        "postcss": "^8.4.21",
+        "postcss-load-config": "^4.0.1",
+        "prettier": "^2.8.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typescript": "^4.9.5",
+        "vite": "4.1.4",
+        "vitest": "^0.29.1",
+        "wouter": "^2.10.0"
+    }
+}
