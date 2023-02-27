@@ -10,7 +10,7 @@ use axum::{
         HeaderValue, Method, StatusCode,
     },
     middleware,
-    routing::{get, get_service},
+    routing::get,
     Router,
 };
 use sqlx::PgPool;
@@ -90,13 +90,12 @@ async fn main() -> Result<()> {
 }
 
 fn static_file_handler() -> Router {
-    let serve_dir = ServeDir::new("dist").not_found_service(ServeFile::new("dist/index.html"));
-    let serve_dir = get_service(serve_dir);
-
     // Static assets served from this router will be cached.
     Router::new()
-        .route("/", serve_dir.clone())
-        .fallback_service(serve_dir)
+        .nest_service(
+            "/",
+            ServeDir::new("dist").not_found_service(ServeFile::new("dist/index.html")),
+        )
         .layer(middleware::from_fn(cache_control::set_cache_header))
 }
 
