@@ -6,7 +6,6 @@ import react from "@vitejs/plugin-react"
 dotenv.config({ path: "../.env" })
 
 export default defineConfig({
-    base: "./",
     plugins: [react()],
     build: {
         target: "esnext",
