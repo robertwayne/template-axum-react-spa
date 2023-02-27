@@ -40,7 +40,7 @@ async fn main() -> Result<()> {
         .init();
 
     let db =
-        PgPool::connect(&std::env::var("DB_URL").unwrap_or_else(|_| {
+        PgPool::connect(&std::env::var("DATABASE_URL").unwrap_or_else(|_| {
             "postgres://postgres:postgres@localhost:5432/postgres".to_string()
         }))
         .await?;
