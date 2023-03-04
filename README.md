@@ -9,6 +9,7 @@
 
 - __[React](https://reactjs.org)__
 - __[TypeScript](https://www.typescriptlang.org)__
+- __[Tailwind CSS](https://tailwindcss.com)__
 - __[Vite](https://vitejs.dev/)__ + __[Vitest](https://vitest.dev/)__
 - __[wouter](https://github.com/molefrog/wouter)__
 
@@ -23,7 +24,6 @@
 ## Client Notes
 
 - Async, naive prefetch route links by default.
-- Uses vanilla CSS modules.
 
 ## Server Notes
 
