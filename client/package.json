@@ -17,7 +17,7 @@
         "tsc:watch": "tsc --noEmit --watch",
         "test": "vitest run --no-watch",
         "test:watch": "vitest",
-        "check": "pnpm run tsc && pnpm run lint:fix && pnpm run test && pnpm run fmt"
+        "check": "npm run tsc && npm run lint:fix && npm run test && npm run fmt"
     },
     "dependencies": {
         "@types/react": "^18.0.28",
