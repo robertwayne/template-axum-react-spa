@@ -10,9 +10,13 @@
     font: inherit;
 }
 
-html {
+html,
+body,
+body > #root > div {
+    font-family: "Roboto", sans-serif;
     color-scheme: dark light;
     overflow-x: hidden;
+    min-height: 100svh;
 }
 
 a {
@@ -27,3 +31,7 @@ video {
     display: block;
     max-width: 100%;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

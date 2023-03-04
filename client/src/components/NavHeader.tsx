@@ -1,24 +1,22 @@
-import "./NavHeader.module.css"
-
-import { Dispatch, SetStateAction } from "react"
-import { Theme, darkTheme, lightTheme } from "../theme"
+import { useEffect, useState } from "react"
 
 import { Link } from "wouter"
 import PrefetchLink from "./PrefetchLink"
 import moon from "../../assets/moon.svg"
 import sun from "../../assets/sun.svg"
 
-const NavHeader = ({
-    theme,
-    setTheme,
-}: {
-    theme: Theme
-    setTheme: Dispatch<SetStateAction<Theme>>
-}): JSX.Element => {
+const NavHeader = (): JSX.Element => {
+    const [isDark, setIsDark] = useState(false)
+
     const toggleTheme = (): void => {
-        setTheme(theme.name === "dark" ? lightTheme : darkTheme)
-        localStorage.setItem("theme", theme.name === "dark" ? "light" : "dark")
+        document.documentElement.classList.toggle("dark")
+        localStorage.setItem("theme", isDark ? "light" : "dark")
+        setIsDark(!isDark)
     }
+
+    useEffect(() => {
+        setIsDark(document.documentElement.classList.contains("dark"))
+    }, [])
 
     const router = [
         {
@@ -32,15 +30,15 @@ const NavHeader = ({
     ]
 
     return (
-        <nav>
-            <h1>
+        <nav className="flex w-full items-center justify-between p-4 ">
+            <h1 className="text-3xl">
                 <Link to="/">Template</Link>
             </h1>
             <div>
-                <ul>
+                <ul className="flex items-center text-xl">
                     {router.map((route) => {
                         return (
-                            <li key={route.to}>
+                            <li key={route.to} className="ml-4 flex">
                                 <PrefetchLink to={route.to} file={route.name}>
                                     {route.name}
                                 </PrefetchLink>
@@ -49,9 +47,12 @@ const NavHeader = ({
                     })}
 
                     <li>
-                        <button onClick={toggleTheme}>
+                        <button
+                            onClick={toggleTheme}
+                            className="ml-4 flex border-none bg-transparent"
+                        >
                             <img
-                                src={theme.name == "dark" ? sun : moon}
+                                src={isDark ? sun : moon}
                                 alt="sun"
                                 width="24"
                                 height="24"

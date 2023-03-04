@@ -1,10 +1,8 @@
-import "./Footer.module.css"
-
 import ExternalLink from "./ExternalLink"
 
 const Footer = (): JSX.Element => {
     return (
-        <footer>
+        <footer className="flex w-full flex-col items-center gap-1 p-2">
             <span>
                 <ExternalLink to="https://github.com/robertwayne/template-axum-react-spa">
                     GitHub

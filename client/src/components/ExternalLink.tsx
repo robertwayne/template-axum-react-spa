@@ -1,4 +1,3 @@
-import "./ExternalLink.module.css"
 /**
  * Wrapper around an <a> tag leading to an external site. Always opens in a new
  * tab.
@@ -11,7 +10,12 @@ const ExternalLink = ({
     children: string
 }): JSX.Element => {
     return (
-        <a href={to} rel="noopener noreferrer" target="_blank">
+        <a
+            className="font-bold hover:text-light-highlight dark:hover:text-dark-highlight"
+            href={to}
+            rel="noopener noreferrer"
+            target="_blank"
+        >
             {children}
         </a>
     )
