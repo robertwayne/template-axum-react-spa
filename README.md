@@ -15,15 +15,22 @@
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/robertwayne/template-axum-react-spa`
-2. Change `.env.TEMPLATE` to `.env` and set your Postgres credentials _(if not using defaults)_.
+1. Clone the repository: `git clone
+   https://github.com/robertwayne/template-axum-react-spa`
+2. Change `.env.TEMPLATE` to `.env` and set your Postgres credentials _(if not
+   using defaults)_.
 3. Run the server with `cargo run` from inside the `/server` directory.
-4. You should build the client initially with `npm run build` from inside the `/client` directory. After that, you can use `npm run dev` for hot reloading.
-5. If you're serving from the server, visit `http://127.0.0.1:3000` in your browser. If you're using npm dev, visit `http://127.0.0.1:8000` in your browser.
+4. You should build the client initially with `pnpm run build` from inside the
+   `/client` directory. After that, you can use `pnpm run dev` for hot
+   reloading.
+5. If you're serving from the server, visit `http://127.0.0.1:3000` in your
+   browser. If you're using npm dev, visit `http://127.0.0.1:8000` in your
+   browser.
 
 ## Client Notes
 
 - Async, naive prefetch route links by default.
+- Scripts use __[pnpm](https://github.com/pnpm/pnpm)__ by default.
 
 ## Server Notes
 
@@ -33,7 +40,8 @@
 ## GitHub Action Notes
 
 - Runs _(client)_ tests, eslint, tsc, and prettier on PRs.
-- Runs dependabot weekly. You can manually run `combine` to squish all dependabot PRs into one PR.
+- Runs dependabot weekly. You can manually run `combine` to squish all
+  dependabot PRs into one PR.
 - Server tests/formatting are not run on PR _(yet)_.
 
 ## Additional Scripts
