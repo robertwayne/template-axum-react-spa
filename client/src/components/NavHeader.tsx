@@ -12,7 +12,7 @@ const NavHeader = (): JSX.Element => {
     const ctx = useContext(ThemeContext)
     const [hamburgerIsOpen, setHamburgerIsOpen] = useState(false)
 
-    const router = [
+    const links = [
         {
             to: "/",
             name: "Home",
@@ -99,18 +99,18 @@ const NavHeader = (): JSX.Element => {
                     </div>
 
                     <ul className="flex grow flex-col justify-center gap-8">
-                        {router.map((route) => {
+                        {links.map((link) => {
                             return (
                                 <li
-                                    key={route.to}
+                                    key={link.to}
                                     className="ml-4 flex h-fit w-fit"
                                 >
                                     <PrefetchLink
-                                        to={route.to}
-                                        file={route.name}
+                                        to={link.to}
+                                        file={link.name}
                                         onClick={toggleHamburgerMenu}
                                     >
-                                        {route.name}
+                                        {link.name}
                                     </PrefetchLink>
                                 </li>
                             )
@@ -124,11 +124,11 @@ const NavHeader = (): JSX.Element => {
     const StandardMenu = (): JSX.Element => {
         return (
             <ul className="hidden h-fit text-xl font-bold lg:flex">
-                {router.map((route) => {
+                {links.map((link) => {
                     return (
-                        <li key={route.to} className="ml-4 flex">
-                            <PrefetchLink to={route.to} file={route.name}>
-                                {route.name}
+                        <li key={link.to} className="ml-4 flex">
+                            <PrefetchLink to={link.to} file={link.name}>
+                                {link.name}
                             </PrefetchLink>
                         </li>
                     )
