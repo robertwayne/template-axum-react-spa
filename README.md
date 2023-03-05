@@ -29,7 +29,6 @@
 
 - Caches static files by default: HTML, CSS, JS, WEBP, SVG, and WOFF2.
 - Uses tower-http CORS, Compression _(gzip by default)_, and CSP middleware.
-- Compiled with `mold`; you can remove this in `/server/.cargo/config.toml`.
 
 ## GitHub Action Notes
 
