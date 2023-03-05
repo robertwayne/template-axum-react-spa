@@ -7,16 +7,19 @@ import { ReactNode } from "react"
 const PrefetchLink = ({
     to,
     file,
+    onClick: handleClick,
     children,
 }: {
     to: string
     file: string
+    onClick?: () => void
     children: ReactNode
 }): JSX.Element => {
     return (
         <Link
             to={to}
             onPointerEnter={() => import(`../routes/${file}.tsx`)}
+            onClick={handleClick}
             className="border-b-2 border-b-light-highlight hover:text-light-highlight dark:border-b-dark-highlight  dark:hover:text-dark-highlight"
         >
             {children}

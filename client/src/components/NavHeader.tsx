@@ -11,12 +11,17 @@ import sun from "../../assets/sun.svg"
 const NavHeader = (): JSX.Element => {
     const ctx = useContext(ThemeContext)
     const [hamburgerIsOpen, setHamburgerIsOpen] = useState(false)
-    
-    const toggleTheme = (): void => {
-        document.documentElement.classList.toggle("dark")
-        localStorage.setItem("theme", ctx.isDark ? "light" : "dark")
-        ctx.setIsDark(!ctx.isDark)
-    }
+
+    const router = [
+        {
+            to: "/",
+            name: "Home",
+        },
+        {
+            to: "/about",
+            name: "About",
+        },
+    ]
 
     useEffect(() => {
         const theme = localStorage.getItem("theme")
@@ -36,7 +41,19 @@ const NavHeader = (): JSX.Element => {
         }
     }, [ctx.isDark])
 
-        const toggleHamburgerMenu = (): void => {
+    /**
+     * Swap between light and dark theme, saving the choice to local storage.
+     */
+    const toggleTheme = (): void => {
+        document.documentElement.classList.toggle("dark")
+        localStorage.setItem("theme", ctx.isDark ? "light" : "dark")
+        ctx.setIsDark(!ctx.isDark)
+    }
+
+    /**
+     * Opens or closes the hamburger menu.
+     */
+    const toggleHamburgerMenu = (): void => {
         const element = document.getElementById("hamburger-button")
         if (element) element.classList.toggle("hidden")
 
@@ -52,18 +69,18 @@ const NavHeader = (): JSX.Element => {
                 id="hamburger-menu"
                 className={hamburgerIsOpen ? "" : "hidden"}
             >
-                <div className="absolute top-0 right-0 z-10 flex h-full w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl backdrop-blur-xl dark:bg-dark-primary dark:bg-opacity-60 font-bold">
+                <div className="absolute top-0 right-0 z-10 flex h-full w-full flex-col justify-center bg-light-primary bg-opacity-60 p-2 text-4xl font-bold backdrop-blur-xl dark:bg-dark-primary dark:bg-opacity-60">
                     <div className="flex items-center self-end">
                         <button
                             onClick={toggleTheme}
-                            className="ml-4 flex self-end border-none bg-transparent w-[48px] h-[48px]"
+                            className="ml-4 flex h-[48px] w-[48px] self-end border-none bg-transparent"
                         >
                             <img
                                 src={ctx.isDark ? sun : moon}
                                 alt="change theme icon"
                                 width="36"
                                 height="36"
-                                className="self-center flex"
+                                className="flex self-center"
                             />
                         </button>
 
@@ -91,6 +108,7 @@ const NavHeader = (): JSX.Element => {
                                     <PrefetchLink
                                         to={route.to}
                                         file={route.name}
+                                        onClick={toggleHamburgerMenu}
                                     >
                                         {route.name}
                                     </PrefetchLink>
@@ -105,7 +123,7 @@ const NavHeader = (): JSX.Element => {
 
     const StandardMenu = (): JSX.Element => {
         return (
-            <ul className="hidden h-fit text-xl lg:flex font-bold">
+            <ul className="hidden h-fit text-xl font-bold lg:flex">
                 {router.map((route) => {
                     return (
                         <li key={route.to} className="ml-4 flex">
@@ -133,17 +151,6 @@ const NavHeader = (): JSX.Element => {
         )
     }
 
-    const router = [
-        {
-            to: "/",
-            name: "Home",
-        },
-        {
-            to: "/about",
-            name: "About",
-        },
-    ]
-
     return (
         <nav className="flex w-full items-center justify-between p-4 ">
             <h1 className="text-3xl font-bold">
@@ -162,8 +169,8 @@ const NavHeader = (): JSX.Element => {
                 </button>
             </div>
 
-            <StandardMenu />
             <HamburgerMenu />
+            <StandardMenu />
         </nav>
     )
 }
