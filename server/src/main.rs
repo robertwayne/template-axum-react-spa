@@ -78,7 +78,7 @@ async fn main() -> Result<()> {
                 )
                 .layer(SetResponseHeaderLayer::if_not_present(
                     CONTENT_SECURITY_POLICY,
-                    HeaderValue::from_static("default-src 'self'"),
+                    HeaderValue::from_static("default-src 'self'; object-src 'none';"),
                 ))
                 .layer(CompressionLayer::new())
                 .layer(TraceLayer::new_for_http())
