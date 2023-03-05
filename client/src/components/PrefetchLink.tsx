@@ -12,12 +12,12 @@ const PrefetchLink = ({
     to: string
     file: string
     children: ReactNode
-}) => {
+}): JSX.Element => {
     return (
         <Link
             to={to}
             onPointerEnter={() => import(`../routes/${file}.tsx`)}
-            className="border-b-light-highlight hover:border-b-2 hover:text-light-highlight dark:border-b-dark-highlight dark:hover:text-dark-highlight"
+            className="border-b-2 border-b-light-highlight hover:text-light-highlight dark:border-b-dark-highlight  dark:hover:text-dark-highlight"
         >
             {children}
         </Link>
