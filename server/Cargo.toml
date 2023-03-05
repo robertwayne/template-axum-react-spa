@@ -1,6 +1,7 @@
 [package]
 name = "template-axum-react-spa"
 authors = ["Rob Wagner <rob@sombia.com>"]
+license = ""
 repository = "https://github.com/robertwayne/template-axum-react-spa"
 version = "0.1.0"
 edition = "2021"

@@ -1,7 +1,7 @@
 {
     "name": "template-axum-react-spa",
     "version": "0.1.0",
-    "repository": "",
+    "repository": "https://github.com/robertwayne/template-axum-react-spa",
     "author": "Rob Wagner <rob@sombia.com>",
     "license": "",
     "type": "module",
