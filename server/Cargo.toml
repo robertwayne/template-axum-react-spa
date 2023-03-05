@@ -24,7 +24,7 @@ tower = { version = "0.4", default-features = false, features = ["util"] }
 tower-http = { version = "0.4", default-features = false, features = [
     "fs",
     "cors",
-    "compression-br",
+    "compression-gzip",
     "set-header",
     "trace",
 ] }
